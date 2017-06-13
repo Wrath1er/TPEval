@@ -9,17 +9,17 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.aifcc.master</groupId>
-    <artifactId>directory-impl</artifactId>
+    <artifactId>stock-impl</artifactId>
     <packaging>jar</packaging>
-    <version>2.0</version>
-    <name>Impl Directory</name>
+    <version>1.0</version>
+    <name>Impl Gestion Des Stocks</name>
 
 
     <dependencies>
         <dependency>
             <groupId>fr.aifcc.master</groupId>
-            <artifactId>directory-api</artifactId>
-            <version>2.0</version>
+            <artifactId>stock-api</artifactId>
+            <version>1.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

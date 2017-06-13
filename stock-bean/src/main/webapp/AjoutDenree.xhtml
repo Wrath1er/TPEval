@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html lang='fr'
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h='http://java.sun.com/jsf/html'
+>
+
+<h:head>
+    <title>
+        <h:outputText value="Ajout"/>
+    </title>
+</h:head>
+<h:body>
+<f:view>
+
+<h:outputLink value="denrees.faces" >
+    <h:outputText value="Annuaires des denrees" />
+</h:outputLink>
+
+<h1>Ajout d'une denree</h1>
+
+<h:form>
+    <ul>
+        <li>
+            <h:outputLabel id="champNom" for="nomID" value="Nom : " />
+            <h:inputText id="nomID" value="#{denreeBean.newDenree.nom}"/>
+        </li>
+        <li>
+            <h:outputLabel id="champQuantite" for="quantiteID" value="Quantite : " />
+            <h:inputText id="quantiteID" value="#{denreeBean.newDenree.quantite}"/>
+        </li>
+        <li>
+            <h:outputLabel id="champCategorie" for="categorieID" value="Categorie : " />
+            <h:inputText id="categorieID" value="#{denreeBean.newDenree.categorie}"/>
+        </li>
+    </ul>
+    <h:commandButton value="Ajouter" action="#{denreeBean.ajoutDenrer()}" />
+</h:form>
+
+<h2>Liste des denrees</h2>
+
+<h:dataTable value="#{denreesBean.denrees}" var="denree">
+
+    <h:column>
+        <f:facet name="header">ID</f:facet>
+        <h:outputText value="#{denree.id}" />
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">Liste des noms</f:facet>
+        <h:outputText value="#{denree.nom}" />
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">Quantite</f:facet>
+        <h:outputText value="#{denree.quantite}" />
+    </h:column>
+
+</h:dataTable>
+
+<p>
+
+    <h:form>
+    <h:commandLink action="#{denreesBean.goToPreviousPage()}" disabled="#{!denreesBean.hasPreviousPage()}">
+        <h:outputText value="Précédent"/>
+    </h:commandLink>
+
+    <h:outputText value=" - "/>
+
+    <h:commandLink action="#{denreesBean.goToNextPage()}" disabled="#{!denreesBean.hasNextPage()}">
+        <h:outputText value="Suivant"/>
+    </h:commandLink>
+    </h:form>
+
+</p>
+
+
+
+
+
+</f:view>
+</h:body>
+</html>

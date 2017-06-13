@@ -9,16 +9,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.aifcc.master</groupId>
-    <artifactId>directory-bean</artifactId>
+    <artifactId>stock-bean</artifactId>
     <packaging>war</packaging>
-    <version>2.0</version>
-    <name>Directory Faces</name>
-
-    <parent>
-		<groupId>fr.aifcc.master</groupId>
-		<artifactId>directory-application</artifactId>
-        <version>2.0</version>
-    </parent>   
+    <version>1.0</version>
+    <name>Bean Gestion Des Stocks</name> 
 
     <dependencies>
 		<dependency>
@@ -42,26 +36,18 @@
             <artifactId>jsf-impl</artifactId>
             <version>2.2.14</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
+
 
         <dependency>
             <groupId>fr.aifcc.master</groupId>
-            <artifactId>directory-impl</artifactId>
-            <version>2.0</version>
+            <artifactId>stock-impl</artifactId>
+            <version>1.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>fr.aifcc.master</groupId>
-            <artifactId>directory-api</artifactId>
-            <version>2.0</version>
+            <artifactId>stock-api</artifactId>
+            <version>1.0</version>
             <scope>compile</scope>
         </dependency>
 

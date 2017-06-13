@@ -16,7 +16,7 @@
     </context-param>
 
     <welcome-file-list>
-        <welcome-file>persons.faces</welcome-file>
+        <welcome-file>denrees.faces</welcome-file>
     </welcome-file-list>
 
 </web-app>

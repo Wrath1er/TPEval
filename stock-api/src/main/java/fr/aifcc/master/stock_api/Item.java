@@ -1,6 +1,6 @@
 package fr.aifcc.master.stock_api;
 
-public abstract class Item
+public abstract class Item //Classe d'Objet generale
 {
 	//atribut de classe
 	private long id ;

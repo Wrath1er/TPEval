@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html lang='fr'
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h='http://java.sun.com/jsf/html'
+    >
+
+<h:head>
+    <title>
+        Denrees
+    </title>
+</h:head>
+<h:body>
+<f:view>
+
+    <h1>Annuaire de denrees</h1>
+
+    <h:dataTable value="#{denreesBean.denrees}" var="denree">
+
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            <h:outputText value="#{denree.id}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Liste des noms</f:facet>
+            <h:outputLink value="denree.faces" >
+                <f:param name="id" value="#{denree.id}"/>
+                <h:outputText value="#{denree.nom}"/>
+            </h:outputLink>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Quantite</f:facet>
+            <h:outputText value="#{denree.quantite}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Categorie</f:facet>
+            <h:outputText value="#{denree.categorie}" />
+        </h:column>
+
+    </h:dataTable>
+
+    <p>
+
+        <h:form>
+        <h:commandLink action="#{denreesBean.goToPreviousPage()}" disabled="#{!denreesBean.hasPreviousPage()}">
+            <h:outputText value="Précédent"/>
+        </h:commandLink>
+
+        <h:outputText value=" - "/>
+
+        <h:commandLink action="#{denreesBean.goToNextPage()}" disabled="#{!denreesBean.hasNextPage()}">
+            <h:outputText value="Suivant"/>
+        </h:commandLink>
+        </h:form>
+
+    </p>
+
+    <p>
+        <h:form>
+            <h:commandLink action="AjoutDenree.faces">
+                <h:outputText value="Ajouter"/>
+            </h:commandLink>
+        </h:form>
+    </p>
+</f:view>
+</h:body>
+</html>

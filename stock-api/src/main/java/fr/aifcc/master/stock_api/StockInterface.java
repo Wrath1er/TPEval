@@ -6,7 +6,7 @@ import java.util.Collection;
  * Interface d'accès au stockage persistant des données.
  * @author PIVARD Julien
  * */
-public interface StockInterface
+public interface StockInterface //Liste de tout les fonction de l'application
 {
 
     /**
@@ -50,7 +50,7 @@ public interface StockInterface
      * @return La liste des denrées qui correspondent à la recherche.
      * */
     public Collection<Denree> getDenreeRecherche( String critere )
-            throws StockException;
+           throws StockException;
 
 
     /**

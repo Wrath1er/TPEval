@@ -1,16 +1,18 @@
-package fr.aifcc.master.directory_api;
+package fr.aifcc.master.stock_api;
 
-public class Denree extends Item
+public class Denree extends Item //Classe qui permer d'acceder a l'objet Denree
 {
 	//atribut de classe
 	private String nom ;
+	private long quantite ;
 	private String categorie ;
 
 	//constructeur vide de la classe
-	public Person()
+	public Denree()
 	{
-		this.firstName = "";
-		this.lastName = "";
+		this.nom = "";
+		this.quantite = 0;
+		this.categorie = "";
 	}
 
 	public String getNom(){
@@ -18,6 +20,13 @@ public class Denree extends Item
 	}
 	public void setNom(String nom){
 		this.nom = nom ;
+	}
+
+	public long getQuantite(){
+		return this.quantite ;
+	}
+	public void setQuantite(long quantite){
+		this.quantite = quantite ;
 	}
 
 	public String getCategorie(){

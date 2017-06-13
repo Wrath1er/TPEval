@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html lang='fr'
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h='http://java.sun.com/jsf/html'
+>
+
+<f:metadata>
+    <f:viewParam name="id" value="#{denreeBean.id}" />
+</f:metadata>
+
+<h:head>
+    <title>
+        <h:outputText value="#{denreeBean.denree.nom}"/>
+    </title>
+</h:head>
+<h:body>
+<f:view>
+
+<h:outputLink value="denrees.faces" >
+    <h:outputText value="Annuaires des denrees" />
+</h:outputLink>
+
+<h1>Affichage d'une denree</h1>
+<h2><h:outputText value="#{denreeBean.denree.nom}"/></h2>
+
+<h:form>
+    <ul>
+        <li>
+            Identifiant : <h:outputText value="#{denreeBean.denree.id}"/>
+        </li>
+        <li>
+            <h:outputLabel id="champNom" for="nomID" value="Nom : " />
+            <h:inputText id="nomID" value="#{denreeBean.denree.nom}" />
+        </li>
+        <li>
+            <h:outputLabel id="champQuantite" for="quantiteID" value="Quantite : " />
+            <h:inputText id="quantiteID" value="#{denreeBean.denree.quantite}" />
+        </li>
+        <li>
+            <h:outputLabel id="champCategorie" for="categorieID" value="Categorie : " />
+            <h:inputText id="categorieID" value="#{denreeBean.denree.categorie}" />
+        </li>
+    </ul>
+    <h:commandButton value="Mettre à jour" action="#{denreeBean.majDenree()}" />
+</h:form>
+
+<h2>Rechercher une denree</h2>
+<h:form>
+    <h:outputLabel id="champNom" for="nomIDRecherche" value="Recherche : " />
+    <h:inputText id="nomIDRecherche" value="#{denreeBean.chaineRecherche}" />
+    <h:commandButton value="Rechercher" action="#{denreeBean.faireRecherche()}" />
+</h:form>
+
+<h2>
+    <h:outputText value="Résultat recherche" rendered="#{denreeBean.tailleResultat ge 0}"/>
+</h2>
+
+<h:outputText value="Aucun résultats pour la recherche" rendered="#{denreeBean.tailleResultat eq 0}" />
+<h:dataTable value="#{denreeBean.resultatRecherche}" var="p" rendered="#{denreeBean.tailleResultat gt 0}" >
+
+    <h:column>
+        <f:facet name="header">ID</f:facet>
+        <h:outputText value="#{p.id}" />
+    </h:column>
+
+        <h:column>
+            <f:facet name="header">Liste des noms</f:facet>
+            <h:outputLink value="denree.faces" >
+                <f:param name="id" value="#{p.id}"/>
+                <h:outputText value="#{p.nom}"/>
+            </h:outputLink>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Quantite</f:facet>
+            <h:outputText value="#{p.quantite}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Categorie</f:facet>
+            <h:outputText value="#{p.categorie}" />
+        </h:column>
+
+</h:dataTable>
+
+</f:view>
+</h:body>
+</html>
